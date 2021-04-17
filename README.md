@@ -39,7 +39,7 @@ Currently, the program crashes when you close the window. There is a small bug h
 
 Aside from the bug mentioned above, there are five additional major student tasks in the Memory Management chatbot project, which are:
 
-### Task 1 : Exclusive Ownership 1
+### Task 1 : Exclusive Ownership 1 **DONE**
 In file `chatgui.h` / `chatgui.cpp`, make `_chatLogic` an exclusive resource to class `ChatbotPanelDialog` using an appropriate smart pointer. Where required, make changes to the code such that data structures and function parameters reflect the new structure. 
 
 ### Task 2 : The Rule Of Five
