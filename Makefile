@@ -12,6 +12,11 @@ build:
 	cmake .. && \
 	make
 
+.PHONY: run
+run:
+	cd build && \
+	./membot
+
 .PHONY: debug
 debug:
 	mkdir -p build
