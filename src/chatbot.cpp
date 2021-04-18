@@ -42,6 +42,8 @@ ChatBot::~ChatBot() {
 //// STUDENT CODE
 ////
 
+/* implement copy and move operators here */
+
 ////
 //// EOF STUDENT CODE
 
