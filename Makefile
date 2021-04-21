@@ -24,6 +24,11 @@ debug:
 	cmake -DCMAKE_BUILD_TYPE=debug .. && \
 	make
 
+.PHONY: valgrind
+valgrind:
+	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --log-file=~/valgrind-out.txt <add command here>
+
+
 .PHONY: clean
 clean:
 	rm -rf build
