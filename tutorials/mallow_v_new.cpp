@@ -23,9 +23,9 @@ public:
 int main() {
   // allocate memory using malloc
   // comment these lines out to run the example below
-//   MyClass *myClass = (MyClass *)malloc(sizeof(MyClass));
-//   myClass->setNumber(42); // EXC_BAD_ACCESS
-//   free(myClass);
+  //   MyClass *myClass = (MyClass *)malloc(sizeof(MyClass));
+  //   myClass->setNumber(42); // EXC_BAD_ACCESS
+  //   free(myClass);
 
   // allocate memory using new
   MyClass *myClass = new MyClass();
