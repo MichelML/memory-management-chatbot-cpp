@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 class MyClass {
-  int _mymember;
+  double _mymember;
 
 public:
   MyClass() { std::cout << "Constructor is called\n"; }
