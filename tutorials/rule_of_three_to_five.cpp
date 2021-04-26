@@ -1,6 +1,27 @@
 #include <iostream>
 #include <stdlib.h>
 
+// SUMMARY OF RULE OF FIVE
+// The destructor: Responsible for freeing the resource once the object it
+// belongs to goes out of scope.
+
+// The assignment operator: The default assignment operation performs a
+// member-wise shallow copy, which does not copy the content behind the resource
+// handle. If a deep copy is needed, it has be implemented by the programmer.
+
+// The copy constructor: As with the assignment operator, the default copy
+// constructor performs a shallow copy of the data members. If something else is
+// needed, the programmer has to implement it accordingly.
+
+// The move constructor: Because copying objects can be an expensive operation
+// which involves creating, copying and destroying temporary objects, rvalue
+// references are used to bind to an rvalue. Using this mechanism, the move
+// constructor transfers the ownership of a resource from a (temporary) rvalue
+// object to a permanent lvalue object.
+
+// The move assignment operator: With this operator, ownership of a resource can
+// be transferred from one object to another. The internal behavior is very
+// similar to the move constructor.
 class MyMovableClass {
 private:
   int _size;
