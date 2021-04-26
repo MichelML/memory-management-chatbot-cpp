@@ -22,6 +22,7 @@
 // The move assignment operator: With this operator, ownership of a resource can
 // be transferred from one object to another. The internal behavior is very
 // similar to the move constructor.
+
 class MyMovableClass {
 private:
   int _size;
