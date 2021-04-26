@@ -54,6 +54,25 @@ public:
     source._data = nullptr;
     source._size = 0;
   }
+
+  MyMovableClass &
+  operator=(MyMovableClass &&source) // 5 : move assignment operator
+  {
+    std::cout << "MOVING (assign) instance " << &source << " to instance "
+              << this << std::endl;
+    if (this == &source)
+      return *this;
+
+    delete[] _data;
+
+    _data = source._data;
+    _size = source._size;
+
+    source._data = nullptr;
+    source._size = 0;
+
+    return *this;
+  }
 };
 
 MyMovableClass createObject(int size) {
