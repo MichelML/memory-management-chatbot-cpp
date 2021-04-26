@@ -22,6 +22,14 @@ public:
     delete[] _data;
   }
 
+    MyMovableClass(const MyMovableClass &source) // 2 : copy constructor
+    {
+        _size = source._size;
+        _data = new int[_size];
+        *_data = *source._data;
+        std::cout << "COPYING content of instance " << &source << " to instance " << this << std::endl;
+    }
+
   MyMovableClass &
   operator=(const MyMovableClass &source) // 3 : copy assignment operator
   {
