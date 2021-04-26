@@ -46,10 +46,24 @@ public:
   }
 };
 
+MyMovableClass createObject(int size) {
+  MyMovableClass obj(size); // regular constructor
+  return obj;               // return MyMovableClass object by value
+}
+
 int main() {
   MyMovableClass obj1(10);   // regular constructor
   MyMovableClass obj2(obj1); // copy constructor
   obj2 = obj1;               // copy assignment operator
+
+  // call to copy constructor, (alternate syntax)
+  MyMovableClass obj3 = obj1;
+  // Here, we are instantiating obj3 in the same statement; hence the copy
+  // assignment operator would not be called.
+
+  MyMovableClass obj4 = createObject(
+      10); // Don't write this statement if you have already written it before
+  obj4 = createObject(10); // call to copy assignment operator
 
   return 0;
 }
