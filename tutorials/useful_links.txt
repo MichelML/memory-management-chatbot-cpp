@@ -1,2 +1,2 @@
-# when to use smart pointers
-http://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#rsmart-smart-pointers
+#when to use smart pointers
+http: // isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#rsmart-smart-pointers
