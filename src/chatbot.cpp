@@ -42,7 +42,26 @@ ChatBot::~ChatBot() {
 //// STUDENT CODE
 ////
 
-/* implement copy and move operators here */
+// Copy constructor
+ChatBot::ChatBot(ChatBot &source) {
+  std::cout << "Calling Copy constructor" << std::endl;
+
+  this->_image = source._image;
+  this->_chatLogic = source._chatLogic;
+  this->_rootNode = source._rootNode;
+}
+
+// Move constructor
+ChatBot::ChatBot(ChatBot &&source) {
+  std::cout << "Calling Move constructor" << std::endl;
+  this->_image = source._image;
+  this->_chatLogic = source._chatLogic;
+  this->_rootNode = source._rootNode;
+
+  source._rootNode = nullptr;
+  source._image = nullptr;
+  source._chatLogic = nullptr;
+}
 
 ////
 //// EOF STUDENT CODE
