@@ -1,5 +1,6 @@
 #include "graphnode.h"
 #include "graphedge.h"
+#include <vector>
 
 GraphNode::GraphNode(int id) { _id = id; }
 
@@ -41,7 +42,7 @@ GraphEdge *GraphNode::GetChildEdgeAtIndex(int index) {
   //// STUDENT CODE
   ////
 
-  return _childEdges[index];
+  return _childEdges[index].get();
 
   ////
   //// EOF STUDENT CODE

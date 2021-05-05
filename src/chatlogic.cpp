@@ -16,6 +16,7 @@ ChatLogic::ChatLogic() {
   ////
 
   std::vector<std::unique_ptr<GraphNode>> _nodes;
+  std::vector<std::unique_ptr<GraphEdge>> _edges;
 
   // create instance of chatbot
   _chatBot = new ChatBot("../images/chatbot.png");
@@ -35,15 +36,15 @@ ChatLogic::~ChatLogic() {
   // delete chatbot instance
   delete _chatBot;
 
-  // delete all nodes (not needed with pointers)
+  // delete all nodes (not needed with smart pointers)
   // for (auto it = std::begin(_nodes); it != std::end(_nodes); ++it) {
   //   delete *it;
   // }
 
-  // delete all edges
-  for (auto it = std::begin(_edges); it != std::end(_edges); ++it) {
-    delete *it;
-  }
+  // delete all edges (not needed with smart pointers)
+  // for (auto it = std::begin(_edges); it != std::end(_edges); ++it) {
+  //   delete *it;
+  // }
 
   ////
   //// EOF STUDENT CODE
@@ -62,8 +63,8 @@ void ChatLogic::AddAllTokensToElement(std::string tokenID, tokenlist &tokens,
           ;
         });
     if (token != tokens.end()) {
-      element.AddToken(token->second); // add new keyword to edge
-      token++;                         // increment iterator to next element
+      element.get()->AddToken(token->second); // add new keyword to edge
+      token++; // increment iterator to next element
     } else {
       break; // quit infinite while-loop
     }
@@ -177,17 +178,17 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename) {
                   });
 
               // create new edge
-              GraphEdge *edge = new GraphEdge(id);
+              auto edge = std::make_unique<GraphEdge>(id);
               edge->SetChildNode((*childNode).get());
               edge->SetParentNode((*parentNode).get());
               _edges.push_back(edge);
 
               // find all keywords for current node
-              AddAllTokensToElement("KEYWORD", tokens, *edge);
+              AddAllTokensToElement("KEYWORD", tokens, edge);
 
               // store reference in child node and parent node
-              (*childNode)->AddEdgeToParentNode(edge);
-              (*parentNode)->AddEdgeToChildNode(edge);
+              (*childNode)->AddEdgeToParentNode(edge.get());
+              (*parentNode)->AddEdgeToChildNode(edge.get());
             }
 
             ////
