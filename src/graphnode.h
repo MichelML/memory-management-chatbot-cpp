@@ -2,6 +2,7 @@
 #define GRAPHNODE_H_
 
 #include "chatbot.h"
+#include <memory>
 #include <string>
 
 // forward declarations
@@ -17,7 +18,7 @@ private:
       _childEdges; // edges to subsequent nodes
 
   // data handles (not owned)
-  std::vector<std::weak_ptr<GraphEdge>>
+  std::vector<std::shared_ptr<GraphEdge>>
       _parentEdges; // edges to preceding nodes
   ChatBot *_chatBot;
 

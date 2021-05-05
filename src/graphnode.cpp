@@ -17,11 +17,11 @@ GraphNode::~GraphNode() {
 void GraphNode::AddToken(std::string token) { _answers.push_back(token); }
 
 void GraphNode::AddEdgeToParentNode(GraphEdge *edge) {
-  _parentEdges.push_back(edge);
+  _parentEdges.push_back(std::shared_ptr<GraphEdge>(edge));
 }
 
 void GraphNode::AddEdgeToChildNode(GraphEdge *edge) {
-  _childEdges.push_back(edge);
+  _childEdges.push_back(std::unique_ptr<GraphEdge>(edge));
 }
 
 //// STUDENT CODE
