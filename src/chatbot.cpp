@@ -51,17 +51,9 @@ ChatBot::ChatBot(ChatBot &source) {
   } else {
     this->_image = nullptr;
   }
-  if (source._chatLogic != nullptr) {
-    this->_chatLogic = new ChatLogic();
-  } else {
-    this->_chatLogic = nullptr;
-  }
 
-  if (source._rootNode != nullptr) {
-    this->_rootNode = new GraphNode(source._rootNode->GetID());
-  } else {
-    this->_rootNode = nullptr;
-  }
+  this->_chatLogic = source._chatLogic;
+  this->_rootNode = source._rootNode;
 }
 
 ChatBot &ChatBot::operator=(const ChatBot &source) {
@@ -72,17 +64,9 @@ ChatBot &ChatBot::operator=(const ChatBot &source) {
   } else {
     this->_image = nullptr;
   }
-  if (source._chatLogic != nullptr) {
-    this->_chatLogic = new ChatLogic();
-  } else {
-    this->_chatLogic = nullptr;
-  }
 
-  if (source._rootNode != nullptr) {
-    this->_rootNode = new GraphNode(source._rootNode->GetID());
-  } else {
-    this->_rootNode = nullptr;
-  }
+  this->_chatLogic = source._chatLogic;
+  this->_rootNode = source._rootNode;
 
   return *this;
 }
@@ -97,6 +81,7 @@ ChatBot::ChatBot(ChatBot &&source) {
   source._rootNode = nullptr;
   source._image = nullptr;
   source._chatLogic = nullptr;
+  this->_chatLogic->SetChatbotHandle(this);
 }
 
 ChatBot &ChatBot::operator=(ChatBot &&source) {
@@ -113,6 +98,7 @@ ChatBot &ChatBot::operator=(ChatBot &&source) {
   source._rootNode = nullptr;
   source._image = nullptr;
   source._chatLogic = nullptr;
+  this->_chatLogic->SetChatbotHandle(this);
 
   return *this;
 }
